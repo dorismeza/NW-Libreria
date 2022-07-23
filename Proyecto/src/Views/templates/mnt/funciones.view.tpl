@@ -1,12 +1,4 @@
-<style>
-    td {
-        text-align: center;
-    }
-    button {
-        margin: 0.5em;
-    }
-</style>
-<h1>Gestión de Categorisa de Libros</h1>
+<h1>Gestión de Funciones</h1>
 <section class="WWFilter">
 
 </section>
@@ -15,7 +7,9 @@
     <thead>
       <tr>
         <th>Código</th>
-        <th>Categoría</th>
+        <th>Funcion</th>
+        <th>Estado</th>
+        <th>Tipo</th>
         <th>
           {{if new_enabled}}
           <button id="btnAdd">Nuevo</button>
@@ -26,22 +20,24 @@
     <tbody>
       {{foreach items}}
       <tr>
-        <td>{{idCategorias}}</td>
-        <td><a href="index.php?page=mnt_categoria&mode=DSP&idcategorias={{idCategorias}}">{{categoriaDes}}</a></td>
+        <td>{{fncod}}</td>
+        <td><a href="index.php?page=mnt_funcion&mode=DSP&fncod={{fncod}}">{{fndsc}}</a></td>
+        <td>{{fnest}}</td>
+        <td>{{fntyp}}</td>
         <td>
           {{if ~edit_enabled}}
           <form action="index.php" method="get">
-             <input type="hidden" name="page" value="mnt_categoria"/>
+             <input type="hidden" name="page" value="mnt_funcion"/>
               <input type="hidden" name="mode" value="UPD" />
-              <input type="hidden" name="idcategorias" value={{idCategorias}} />
+              <input type="hidden" name="fncod" value={{fncod}} />
               <button type="submit">Editar</button>
           </form>
           {{endif ~edit_enabled}}
           {{if ~delete_enabled}}
           <form action="index.php" method="get">
-             <input type="hidden" name="page" value="mnt_categoria"/>
+             <input type="hidden" name="page" value="mnt_funcion"/>
               <input type="hidden" name="mode" value="DEL" />
-              <input type="hidden" name="idcategorias" value={{idCategorias}} />
+              <input type="hidden" name="fncod" value={{fncod}} />
               <button type="submit">Eliminar</button>
           </form>
           {{endif ~delete_enabled}}
@@ -56,7 +52,7 @@
       document.getElementById("btnAdd").addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        window.location.assign("index.php?page=mnt_categoria&mode=INS&idcategorias=0");
+        window.location.assign("index.php?page=mnt_funcion&mode=INS&fncod=0");
       });
     });
 </script>

@@ -1,12 +1,20 @@
 <style>
-    td {
-        text-align: center;
-    }
-    button {
-        margin: 0.5em;
-    }
+  td{
+    text-align: center;
+  }
+
+  .crud{
+    display: flex;
+    width: 150px;
+  }
+
+  .editar{
+    margin-right: 10px;
+  }
 </style>
-<h1>Gestión de Categorisa de Libros</h1>
+
+
+<h1>Gestión de Autores</h1>
 <section class="WWFilter">
 
 </section>
@@ -14,8 +22,10 @@
   <table>
     <thead>
       <tr>
-        <th>Código</th>
-        <th>Categoría</th>
+        <th>Código Autor</th>
+        <th>Nombre del Autor</th>
+        <th>Apellido Autor</th>
+        <th>Genero del Autor</th>
         <th>
           {{if new_enabled}}
           <button id="btnAdd">Nuevo</button>
@@ -26,22 +36,24 @@
     <tbody>
       {{foreach items}}
       <tr>
-        <td>{{idCategorias}}</td>
-        <td><a href="index.php?page=mnt_categoria&mode=DSP&idcategorias={{idCategorias}}">{{categoriaDes}}</a></td>
-        <td>
+        <td>{{idAutor}}</td>
+        <td><a href="index.php?page=mnt_autor&mode=DSP&idAutor={{idAutor}}">{{nombreAutor}}</a></td>
+        <td>{{apellidoAutor}}</td>
+        <td>{{genero}}</td>
+        <td class="crud">
           {{if ~edit_enabled}}
-          <form action="index.php" method="get">
-             <input type="hidden" name="page" value="mnt_categoria"/>
+          <form action="index.php" method="get" class="editar">
+             <input type="hidden" name="page" value="mnt_autor"/>
               <input type="hidden" name="mode" value="UPD" />
-              <input type="hidden" name="idcategorias" value={{idCategorias}} />
+              <input type="hidden" name="idAutor" value={{idAutor}} />
               <button type="submit">Editar</button>
           </form>
           {{endif ~edit_enabled}}
           {{if ~delete_enabled}}
-          <form action="index.php" method="get">
-             <input type="hidden" name="page" value="mnt_categoria"/>
+          <form action="index.php" method="get" class="eliminar">
+             <input type="hidden" name="page" value="mnt_autor"/>
               <input type="hidden" name="mode" value="DEL" />
-              <input type="hidden" name="idcategorias" value={{idCategorias}} />
+              <input type="hidden" name="idAutor" value={{idAutor}} />
               <button type="submit">Eliminar</button>
           </form>
           {{endif ~delete_enabled}}
@@ -56,7 +68,7 @@
       document.getElementById("btnAdd").addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        window.location.assign("index.php?page=mnt_categoria&mode=INS&idcategorias=0");
+        window.location.assign("index.php?page=mnt_autor&mode=INS&idAutor=0");
       });
     });
 </script>

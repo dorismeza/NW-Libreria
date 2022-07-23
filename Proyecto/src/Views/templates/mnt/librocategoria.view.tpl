@@ -171,77 +171,52 @@
         margin-right: 1em;
     }
 </style>
+<h1>{{mode_dsc}}</h1>
 
-<form action="index.php?page=mnt_categoria&mode={{mode}}&idCategorias={{idCategorias}}" method="POST" >
 
+<section>
+  <form action="index.php?page=mnt_librocategoria&mode={{mode}}&idCategoria={{idCategoria}}"
+    method="POST" >
+    <section>
+    <label for="idCategoria">Código de Categoría</label>
+    <input type="hidden" id="idCategoria" name="idCategoria" value="{{idCategoria}}"/>
+    <input type="hidden" id="mode" name="mode" value="{{mode}}" />
+    <input type="hidden" id="xsrftoken" name="xsrftoken" value="{{xsrftoken}}" />
+    <input type="text" readonly name="idCategoriadummy" value="{{idCategoria}}"/>
+    </section>
+   <section>
 
-    <fieldset class="libro">
-
-        {{if steps}}
-            <section class="steps section-mnt">
-                <div class="step-item">
-                    <span class="step-number">1</span>
-                    <span class="step-name">Libro</span>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">2</span>
-                    <span class="step-name">Autor</span>
-                </div>
-                <div class="step-item active">
-                    <span class="step-number">3</span>
-                    <span class="step-name">Categoría</span>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">4</span>
-                    <span class="step-name">Precio</span>
-                </div>
-            </section>
-            <hr class="section-mnt separator">
-        {{endif steps}}
-
-        <h1 class="title-mnt section-mnt">{{mode_dsc}}</h1>
-
-        <section class="section-mnt">
-            <label class="label-mnt" for="idCategorias">Código</label>
-            <input type="hidden" id="idCategorias" name="idCategorias" value="{{idCategorias}}"/>
-            <input type="hidden" id="mode" name="mode" value="{{mode}}" />
-            <input type="hidden" id="xsrftoken" name="xsrftoken" value="{{xsrftoken}}" />
-            <input type="text" class="input-mnt input-inactive" readonly name="idCategoriasdummy" value="{{idCategorias}}"/>
+    <section>
+    <label for="idLibros">Código de Libros</label>
+    <input type="hidden" id="idLibros" name="idLibros" value="{{idLibros}}"/>
+    <input type="hidden" id="mode" name="mode" value="{{mode}}" />
+    <input type="hidden" id="xsrftoken" name="xsrftoken" value="{{xsrftoken}}" />
+    <input type="text" readonly name="idLibrosdummy" value="{{idLibros}}"/>
+    </section>
+    {{if hasErrors}}
+        <section>
+          <ul>
+            {{foreach Errors}}
+                <li>{{this}}</li>
+            {{endfor Errors}}
+          </ul>
         </section>
-
-        <section class="section-mnt">
-            <label for="categoriaDes" class="label-mnt">Categoría</label>
-            <input type="text" {{readonly}} class="input-mnt" name="categoriaDes" value="{{categoriaDes}}" maxlength="45" placeholder="Nombre de Categoría"/>
-        </section>
-
-        {{if hasErrors}}
-            <section class="section-mnt section-error">
-                <ul>
-                {{foreach Errors}}
-                    <li>{{this}}</li>
-                {{endfor Errors}}
-                </ul>
-            </section>
-        {{endif hasErrors}}
-
-        <section class="section-mnt buttons-container">
-            {{if showaction}}
-            <button type="submit" class="primary-button" name="btnGuardar" value="G">Guardar</button>
-            {{endif showaction}}
-            <button type="button" id="btnCancelar" class="secondary-button">Cancelar</button>
-        </section>
-
-    </fieldset>
-
+    {{endif hasErrors}}
+    <section>
+      {{if showaction}}
+      <button type="submit" name="btnGuardar" value="G">Guardar</button>
+      {{endif showaction}}
+      <button type="button" id="btnCancelar">Cancelar</button>
+    </section>
   </form>
-
+</section>
 
 <script>
   document.addEventListener("DOMContentLoaded", function(){
       document.getElementById("btnCancelar").addEventListener("click", function(e){
         e.preventDefault();
         e.stopPropagation();
-        window.location.assign("index.php?page=mnt_categorias");
+        window.location.assign("index.php?page=mnt_librocategoria");
       });
   });
 </script>

@@ -6,7 +6,7 @@
         margin: 0.5em;
     }
 </style>
-<h1>Gestión de Categorisa de Libros</h1>
+<h1>Gestión de Libros por Categoría</h1>
 <section class="WWFilter">
 
 </section>
@@ -26,22 +26,22 @@
     <tbody>
       {{foreach items}}
       <tr>
-        <td>{{idCategorias}}</td>
-        <td><a href="index.php?page=mnt_categoria&mode=DSP&idcategorias={{idCategorias}}">{{categoriaDes}}</a></td>
+        <td>{{idLibro}}</td>
+        <td><a href="index.php?page=mnt_librocategoria&mode=DSP&idLibro={{idLibro}}">{{idCategoria}}</a></td>
         <td>
           {{if ~edit_enabled}}
           <form action="index.php" method="get">
-             <input type="hidden" name="page" value="mnt_categoria"/>
+             <input type="hidden" name="page" value="mnt_librocategoria"/>
               <input type="hidden" name="mode" value="UPD" />
-              <input type="hidden" name="idcategorias" value={{idCategorias}} />
+              <input type="hidden" name="idCategoria" value={{idCategoria}} />
               <button type="submit">Editar</button>
           </form>
           {{endif ~edit_enabled}}
           {{if ~delete_enabled}}
           <form action="index.php" method="get">
-             <input type="hidden" name="page" value="mnt_categoria"/>
+             <input type="hidden" name="page" value="mnt_librocategoria"/>
               <input type="hidden" name="mode" value="DEL" />
-              <input type="hidden" name="idcategorias" value={{idCategorias}} />
+              <input type="hidden" name="idCategoria" value={{idCategoria}} />
               <button type="submit">Eliminar</button>
           </form>
           {{endif ~delete_enabled}}
@@ -56,7 +56,9 @@
       document.getElementById("btnAdd").addEventListener("click", function (e) {
         e.preventDefault();
         e.stopPropagation();
-        window.location.assign("index.php?page=mnt_categoria&mode=INS&idcategorias=0");
+        window.location.assign("index.php?page=mnt_librocategoria&mode=INS&idCategoria=0");
       });
     });
 </script>
+
+   

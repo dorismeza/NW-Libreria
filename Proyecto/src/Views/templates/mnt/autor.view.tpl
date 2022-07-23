@@ -1,5 +1,5 @@
 <style>
-    :root {
+      :root {
         --font-primary-color: #333;
         --font-secondary-color: #6e6d81;
         --font-terciary-color: #2980b9;
@@ -32,16 +32,14 @@
         font-weight: bold;
         color: var(--font-primary-color);
     }
-
-    .libro {
-        border: none;
-        display: grid;
-        grid-template-columns: repeat(5,1fr);
-        grid-template-rows: repeat(4, auto);
-        gap: 1rem;
-    }
-
-    .section-mnt{
+  .contenedor {
+    border: none;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(4, auto);
+    gap: 1rem;
+  }
+  .section-mnt{
         display: flex;
         flex-flow: column nowrap;
         grid-column: 2 / -2;
@@ -172,46 +170,66 @@
     }
 </style>
 
-<form action="index.php?page=mnt_categoria&mode={{mode}}&idCategorias={{idCategorias}}" method="POST" >
+<section>
+  <form action="index.php?page=mnt_autor&mode={{mode}}&idAutor={{idAutor}}"
+    method="POST" >
 
-
-    <fieldset class="libro">
+    <fieldset class="contenedor">
 
         {{if steps}}
-            <section class="steps section-mnt">
-                <div class="step-item">
-                    <span class="step-number">1</span>
-                    <span class="step-name">Libro</span>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">2</span>
-                    <span class="step-name">Autor</span>
-                </div>
-                <div class="step-item active">
-                    <span class="step-number">3</span>
-                    <span class="step-name">Categoría</span>
-                </div>
-                <div class="step-item">
-                    <span class="step-number">4</span>
-                    <span class="step-name">Precio</span>
-                </div>
-            </section>
-            <hr class="section-mnt separator">
+        <section class="steps section-mnt">
+            <div class="step-item">
+                <span class="step-number">1</span>
+                <span class="step-name">Libro</span>
+            </div>
+            <div class="step-item active">
+                <span class="step-number">2</span>
+                <span class="step-name">Autor</span>
+            </div>
+            <div class="step-item">
+                <span class="step-number">3</span>
+                <span class="step-name">Categoría</span>
+            </div>
+            <div class="step-item">
+                <span class="step-number">4</span>
+                <span class="step-name">Precio</span>
+            </div>
+        </section>
+        <hr class="section-mnt separator">
         {{endif steps}}
 
         <h1 class="title-mnt section-mnt">{{mode_dsc}}</h1>
 
         <section class="section-mnt">
-            <label class="label-mnt" for="idCategorias">Código</label>
-            <input type="hidden" id="idCategorias" name="idCategorias" value="{{idCategorias}}"/>
+            <label for="catid" class="label-mnt">Código</label>
+            <input type="hidden" id="idAutor" name="idAutor" value="{{idAutor}}"/>
             <input type="hidden" id="mode" name="mode" value="{{mode}}" />
             <input type="hidden" id="xsrftoken" name="xsrftoken" value="{{xsrftoken}}" />
-            <input type="text" class="input-mnt input-inactive" readonly name="idCategoriasdummy" value="{{idCategorias}}"/>
+            <input type="hidden" name="idlibros" id="idlibros" value="{{idlibros}}">
+            <input type="text" class="input-mnt input-inactive" readonly name="idAutordummy" value="{{idAutor}}"/>
         </section>
 
         <section class="section-mnt">
-            <label for="categoriaDes" class="label-mnt">Categoría</label>
-            <input type="text" {{readonly}} class="input-mnt" name="categoriaDes" value="{{categoriaDes}}" maxlength="45" placeholder="Nombre de Categoría"/>
+            <label for="nombreAutor" class="label-mnt">Nombre del Autor</label>
+            <input type="text" class="input-mnt" {{readonly}} name="nombreAutor" value="{{nombreAutor}}" maxlength="45" placeholder="Nombre del Autor"/>
+        </section>
+
+        <section class="section-mnt">
+            <label for="nombreAutor" class="label-mnt">Apellido del Autor</label>
+            <input type="text" class="input-mnt" {{readonly}} name="apellidoAutor" value="{{apellidoAutor}}" maxlength="45" placeholder="Apellido del Autor"/>
+        </section>
+
+
+        <section class="section-mnt">
+            <label class="label-mnt" for="genero">Genero del Autor</label>
+            {{if readonly}}
+            <input type="hidden" class="input-mnt input-inactive" id="generodummy" name="genero" value="" />
+            {{endif readonly}}
+            <select id="genero" class="input-mnt" name="genero" {{if readonly}}disabled{{endif readonly}}>
+                <option value="MAS" {{genero_MAS}}>Masculino</option>
+                <option value="FEM" {{genero_FEM}}>Femenino</option>
+                <option value="OTR" {{genero_OTR}}>Otros</option>
+            </select>
         </section>
 
         {{if hasErrors}}
@@ -228,12 +246,14 @@
             {{if showaction}}
             <button type="submit" class="primary-button" name="btnGuardar" value="G">Guardar</button>
             {{endif showaction}}
-            <button type="button" id="btnCancelar" class="secondary-button">Cancelar</button>
+            <button type="button" class="secondary-button" id="btnCancelar">Cancelar</button>
         </section>
 
     </fieldset>
 
   </form>
+
+</section>
 
 
 <script>
@@ -241,7 +261,7 @@
       document.getElementById("btnCancelar").addEventListener("click", function(e){
         e.preventDefault();
         e.stopPropagation();
-        window.location.assign("index.php?page=mnt_categorias");
+        window.location.assign("index.php?page=mnt_autores");
       });
   });
 </script>
