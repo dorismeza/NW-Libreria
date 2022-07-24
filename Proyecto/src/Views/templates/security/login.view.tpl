@@ -1,5 +1,5 @@
 <section class="fullCenter">
-  <form class="grid" method="post" action="index.php?page=sec_login{{if redirto}}&redirto={{redirto}}{{endif redirto}}">
+  <form class="grid" method="post" action="index.php?page=sec_mail">
     <section class="depth-1 row col-12 col-m-8 offset-m-2 col-xl-6 offset-xl-3">
       <h1 class="col-12">Iniciar Sesión</h1>
     </section>
@@ -27,6 +27,9 @@
         {{generalError}}
       </div>
     {{endif generalError}}
+    <div class="row right flex-end px-4">
+      <p><a href="index.php?page=sec_recuperar">Olvide mi Contraseña</a></p>
+    </div>
     <div class="row right flex-end px-4">
       <button class="primary" id="btnLogin" type="submit">Iniciar Sesión</button>
     </div>

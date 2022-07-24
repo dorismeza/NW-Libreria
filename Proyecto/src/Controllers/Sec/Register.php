@@ -1,10 +1,14 @@
 <?php
 
 namespace Controllers\Sec;
-
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 use Controllers\PublicController;
 use \Utilities\Validators;
-use Exception;
+
+require_once 'vendor/autoload.php';
+//use Exception;
 
 class Register extends PublicController
 {
