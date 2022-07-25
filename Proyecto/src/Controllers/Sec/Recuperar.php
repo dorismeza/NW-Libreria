@@ -30,33 +30,36 @@ class Recuperar extends PublicController
                 try{
                     if ($dbUser = \Dao\Security\Security::getUsuarioByEmail($this->txtEmail)) {
                         if ($dbUser["userest"] != \Dao\Security\Estados::ACTIVO) {
-                            $this->generalError = "¡Este usuario no esta activo!";
+                            $this->generalError = "¡Credenciales son incorrectas!";
                             $this->hasError = true;
-                             error_log(
-                                 sprintf(
-                                    "ERROR: %s tiene cuenta con estado %s",
+                            error_log(
+                                sprintf(
+                                    "ERROR: %d %s tiene cuenta con estado %s",
+                                    $dbUser["usercod"],
                                     $dbUser["useremail"],
                                     $dbUser["userest"]
                                 )
                             );
                         }else{
                             $mail = new PHPMailer(true);
+                            $nombreUser = \Dao\Security\Security::getNombreUsuario($this->txtEmail);
                             try{
-                                $mail->SMTPDebug = SMTP::DEBUG_SERVER;//ver los mensajes del server
+                                $mail->SMTPDebug = 0; //SMTP::DEBUG_SERVER;//ver los mensajes del server
                                 $mail->isSMTP(); //indicando que vamos a usar SMTP
                                 $mail->Host = 'smtp.gmail.com'; //se busca el host
                                 $mail->SMTPAuth = true; //autenticacion de smtp
                                 $mail->Username = 'librerianegociosweb@gmail.com';//de donde se van a estar enviando los correos
-                                $mail->Password = 'LibreriaNegocios22';
+                                $mail->Password = 'mlfrmrcditxtoqhh';
                                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                                 $mail->Port = 587; 
-
-                                $mail->setFrom('librerianegociosweb@gmail.com','LIBRERIA'); // de donde se va a enviar 
-                                $mail->addAddress($this->txtEmail = $_POST["txtEmail"],'YOP'); // a que correo se va enviar
-                               $mail->addCC('dfulano058@gmail.com');// es una replica
+                                $correo = $this->txtEmail = $_POST["txtEmail"];
+                                $mail->setFrom('librerianegociosweb@gmail.com','Libreria Negocios Web'); // de donde se va a enviar 
+                                $mail->addAddress($correo,'YOP'); // a que correo se va enviar
+                               //$mail->addCC('dfulano058@gmail.com');// es una replica
                                $mail->isHTML(true);
                                $mail->Subject = 'Prueba de Correo';
-                               $mail->Body = 'Esta es una prueba de <b>Recuperacion de Contrasena</b>';
+                               $mail->Body = 'Esta es una prueba de <b>Recuperacion de Contrasena</b> para <b>'.$nombreUser["username"].'</b>
+                               <p>Sigue el siguiente enlace para recuperar tu contrasena </p> <a href="http://localhost/Proyecto/index.php?page=sec_restablecer&mode=UPD&useremail='.$correo.'">Cambiar Contrasena de correo</a>';
                                $mail->send();
                                echo 'Correo Enviado';
 

@@ -84,7 +84,19 @@ class Security extends \Dao\Table
         return self::executeNonQuery($sqlIns, $newUser);
 
     }
+    static public function RecuperarContrasena($email,$password)
+    {
+        $sqlstr = "UPDATE `usuario` set `userpswd`=:userpswd where `useremail` = :useremail;";
+        $sqlParams =array("userpswd"=>self::_hashPassword($password),"useremail"=>$email);
+        return self::executeNonQuery($sqlstr, $sqlParams);
+    }
+    static public function getNombreUsuario($email)
+    {
+        $sqlstr = "SELECT username from `usuario` where `useremail` = :useremail ;";
+        $params = array("useremail"=>$email);
 
+        return self::obtenerUnRegistro($sqlstr, $params);
+    }
     static public function getUsuarioByEmail($email)
     {
         $sqlstr = "SELECT * from `usuario` where `useremail` = :useremail ;";
