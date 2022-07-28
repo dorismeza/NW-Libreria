@@ -25,6 +25,7 @@
       <div class="hmb hrz"></div>
       <div class="hmb dgn pt-2"></div>
     </label>
+    <a href="index.php?page=home" class="header-logo-container"></a>
     <h1>{{SITE_TITLE}}</h1>
     <nav id="menu">
       <ul>
@@ -43,7 +44,7 @@
     {{{page_content}}}
   </main>
   <footer>
-    <div>Todo los Derechos Reservados 2021 &copy;</div>
+    <div>Todo los Derechos Reservados 2022 &copy;</div>
   </footer>
   {{foreach EndScripts}}
   <script src="/{{~BASE_DIR}}/{{this}}"></script>
