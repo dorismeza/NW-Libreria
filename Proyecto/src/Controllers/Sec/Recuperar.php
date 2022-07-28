@@ -49,7 +49,7 @@ class Recuperar extends PublicController
                                 $mail->Host = 'smtp.gmail.com'; //se busca el host
                                 $mail->SMTPAuth = true; //autenticacion de smtp
                                 $mail->Username = 'librerianegociosweb@gmail.com';//de donde se van a estar enviando los correos
-                                $mail->Password = '';
+                                $mail->Password = 'mlfrmrcditxtoqhh';
                                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                                 $mail->Port = 587; 
                                 $correo = $this->txtEmail = $_POST["txtEmail"];
