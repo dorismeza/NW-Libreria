@@ -20,6 +20,8 @@ class Home extends PublicController
         $viewData["categorias"] = \Dao\Mnt\Categorias::obtenerCategorias("alf");
         $viewData["login"] = $_SESSION["login"];
         $viewData["userName"] = $viewData["login"]["userName"];
+      
+
         // dd($_SESSION["login"]);
         if (sizeof($viewData["libros"]) > 0) $viewData["hasLibros"] = true;
         // dd($viewData);

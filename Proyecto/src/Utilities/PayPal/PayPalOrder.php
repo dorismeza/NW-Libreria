@@ -77,6 +77,8 @@ class PayPalOrder
     }
     public function addItem($name, $description, $sku, $price, $tax, $quantity, $category)
     {
+      
+
         $newItem = $this->_itemTemplate;
         $newItem["name"] = $name;
         $newItem["description"] = $description;
@@ -86,6 +88,7 @@ class PayPalOrder
         $newItem["quantity"] = (string) $quantity;
         $newItem["category"] = $category;
 
+             
         $this->addToBody($newItem);
     }
 

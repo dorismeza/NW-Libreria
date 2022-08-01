@@ -66,9 +66,11 @@ class Carrito extends PublicController
 
 
         if(isset($viewData["mode"])){
+            $viewData["login"]=$_SESSION["login"];
+     
             //dd($viewData);
             $tmpCarrito=array();
-            $tmpCarrito=\Dao\Mnt\Carrito::obtenerDatosCarrito();
+            $tmpCarrito=\Dao\Mnt\Carrito::obtenerDatosCarrito($viewData["login"]["userId"]);
             //dd($tmpCarrito);
             $counter = 0;
             foreach($tmpCarrito as $tmp){
