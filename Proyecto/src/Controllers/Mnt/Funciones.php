@@ -2,7 +2,7 @@
 namespace Controllers\Mnt;
 
 use Controllers\PrivateController;
-use Controllers\publicController;
+
 use Views\Renderer;
 
 Class Funciones extends PrivateController

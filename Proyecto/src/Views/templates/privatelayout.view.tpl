@@ -29,15 +29,24 @@
     <h1>{{SITE_TITLE}}</h1>
     <nav id="menu">
       <ul>
+      
         <li><a href="index.php?page=admin_admin"><i class="fas fa-home"></i>&nbsp;Inicio</a></li>
         {{foreach NAVIGATION}}
-            <li><a href="{{nav_url}}">{{nav_label}}</a></li>
+            <li><a href="{{nav_url1}}">{{nav_label1}}</a></li>    
+                 <li><a href="{{nav_url2}}">{{nav_label2}}</a></li> 
+                 <li><a href="{{nav_url3}}">{{nav_label3}}</a></li>    
+                 <li><a href="{{nav_url4}}">{{nav_label4}}</a></li> 
+               
         {{endfor NAVIGATION}}
-        <li><a href="index.php?page=sec_logout"><i class="fas fa-sign-out-alt"></i>&nbsp;Salir</a></li>
+           <li><a href="index.php?page=sec_logout" class="menu-logout">Cerrar sesión</a></li>
       </ul>
+
+      
     </nav>
     {{with login}}
     <span class="username">{{userName}} <a href="index.php?page=sec_logout"><i class="fas fa-sign-out-alt"></i></a></span>
+   <a href="index.php?page=carrito&mode=DSP" class="button " />Carrito
+    
     {{endwith login}}
   </header>
   <main>

@@ -35,7 +35,4 @@
   <h2>Esto solo se ve si no esta autorizado</h2>
 {{endifnot estaAutorizadoVer}}
 
-<hr>
-{{with UserData}}
-  Usuario: ({{codigo}}) {{descripcion}}
-{{endwith UserData}}
+

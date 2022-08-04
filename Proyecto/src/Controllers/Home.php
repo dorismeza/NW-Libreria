@@ -12,19 +12,26 @@ class Home extends PublicController
         $viewData = array(
             "libros" => array(),
             "categorias" => array(),
-            "login" => array(),
-            "userName" => "",
+            "login" =>array(),
+            "userName" => "", 
             "hasLibros" => false
         );
         $viewData["libros"] = \Dao\Mnt\Libros::obtenerTodoLibros();
         $viewData["categorias"] = \Dao\Mnt\Categorias::obtenerCategorias("alf");
-        $viewData["login"] = $_SESSION["login"];
-        $viewData["userName"] = $viewData["login"]["userName"];
-      
+        
+        if(isset($_SESSION["login"])){
+            $viewData["login"] = $_SESSION["login"];
+            $viewData["userName"] = $viewData["login"]["userName"];
+           
+        }else {
+            $_SESSION["newsession"]='no login';
+            $viewData["login"] = $_SESSION["newsession"];
+            $viewData["userName"] = 'Bienvenido'; 
+        }
+        //unset($_SESSION["login"]);
 
-        // dd($_SESSION["login"]);
         if (sizeof($viewData["libros"]) > 0) $viewData["hasLibros"] = true;
-        // dd($viewData);
+     
         Renderer::render("home/home", $viewData);
     }
 }

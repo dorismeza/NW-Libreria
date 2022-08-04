@@ -21,7 +21,9 @@ class Carrito extends PublicController
         \Utilities\Site::redirectToWithMsg(
             "index.php?page=carrito&mode=DSP",
             "Operación ejecutada Satisfactoriamente!"
+            
         );
+       
     }
     private function home()
     {
@@ -29,10 +31,31 @@ class Carrito extends PublicController
             "index.php?page=home",
             "Operación ejecutada Satisfactoriamente!"
         );
+
+        
     }
 
     public function run(): void
     {
+     if(!isset($_SESSION["login"]))
+        {
+            $viewData1="nologin";
+        }
+        else {
+            $viewData1="login";
+        }
+      
+     if ($viewData1=="nologin"){
+        \Utilities\Site::redirectToWithMsg(
+            "index.php?page=sec_login",
+            "Necesitas iniciar sesion!"
+        );
+     }
+   
+     else 
+     {
+        
+ 
         $viewData = array(
             "mode" => "",
             "idlibros"=>"",
@@ -44,16 +67,7 @@ class Carrito extends PublicController
         );
         
         if($this->isPostBack()){
-           /* $viewData["mode"] = $_POST["mode"];
-            $viewData["idlibros"]= $_POST["idlibros"];
-            switch ($viewData["mode"]) {
-                case "INS":
-                    // $this->yeah($viewData["rolescod"]);
-                    dd($viewData);
-                    break;
-                default:
-                    $this->yeah($viewData["idlibros"]);
-            }*/
+        
             
         }else {
             if (isset($_GET["mode"])) {
@@ -66,33 +80,35 @@ class Carrito extends PublicController
 
 
         if(isset($viewData["mode"])){
+        
             $viewData["login"]=$_SESSION["login"];
-     
+      
             //dd($viewData);
             $tmpCarrito=array();
             $tmpCarrito=\Dao\Mnt\Carrito::obtenerDatosCarrito($viewData["login"]["userId"]);
+            $impuesto =\Dao\Mnt\Carrito::obtenerImpuesto($viewData["login"]["userId"]);
             //dd($tmpCarrito);
             $counter = 0;
+            
+           
             foreach($tmpCarrito as $tmp){
                 $viewData["ventaslib"][$counter]["idcarrito"]= $tmp["idcarrito"];
                 $viewData["ventaslib"][$counter]["idlibro"]= $tmp["idlibro"];
-                $viewData["idlibros"]= $tmp["idlibro"];
                 $viewData["ventaslib"][$counter]["nombrelibro"]= $tmp["nombreLibro"];
                 $viewData["ventaslib"][$counter]["coverart"]= $tmp["coverart"];
                 $viewData["ventaslib"][$counter]["cantidad"]= $tmp["cantidad"];
                 $viewData["ventaslib"][$counter]["precio"]= $tmp["precio"];
                 $viewData["ventaslib"][$counter]["subtotal"]= $tmp["subtotal"];
-                $viewData["ventaslib"][$counter]["impuesto"]= $tmp["impuesto"];
+                $viewData["ventaslib"][$counter]["impuesto"]=  $impuesto["impuesto"];
                 $counter++;
             }
-
-            $tmpTotal = \Dao\Mnt\Carrito::obtenerTotalFact();
-            foreach($tmpTotal as $tmp){
-                $viewData["total"][$counter]["subtotal"]= $tmp["subtotal"];
-                $viewData["total"][$counter]["impuesto"]= $tmp["impuesto"];
-                $viewData["total"][$counter]["total"]= $tmp["total"];
+           
+         
+                $viewData["total"][$counter]["subtotal"]= $impuesto["subtotal"];
+                $viewData["total"][$counter]["impuesto"]=  $impuesto["impuesto"];
+                $viewData["total"][$counter]["total"]= $impuesto["total"];
                 $counter++;
-            }
+            
             //dd($viewData);
             switch ($viewData["mode"]){
                 
@@ -107,11 +123,11 @@ class Carrito extends PublicController
                         dd("hay error");
                     }
                 case "INS":
-                    //dd("hay error");
-                    if($viewData["cantidad"]==null){
+                    
                         $viewData["cantidad"]=1;
-                    }
-                   if(\Dao\Mnt\Carrito::InsertarDatosCarrito($viewData["idlibros"],$viewData["cantidad"])){
+                
+                  
+                   if(\Dao\Mnt\Carrito::InsertarDatosCarrito($viewData["idlibros"],$viewData["cantidad"],$viewData["login"]["userId"])){
                     $this->home();
                     }else{
                         dd("hay error");
@@ -121,12 +137,8 @@ class Carrito extends PublicController
         
         
 
-        // Hacer elementos en comun
-
-        // Generar un token XSRF para evitar esos ataques
-        //$viewData["xsrftoken"] = md5($this->name . random_int(10000, 99999));
-        //$_SESSION["xsrftoken"] = $viewData["xsrftoken"];
-
+       
         Renderer::render("principal/carrito", $viewData);
+    }
     }
 }

@@ -352,8 +352,11 @@ i.fa {
                     <span class="book-autor" data-autor="{{idAutor}}">{{nombreAutor}}</span>
                     <span class="book-precio">L.{{precio}}</span>
                 </div>
+                
                 <div class="book-button-container">
                     <a href="#"><span class="view-book-button">Ver libro <i class="fas fa-cart-arrow-down"></i></span></a>
+
+                    
                     <a href="index.php?page=carrito&mode=INS&idlibros={{idlibros}}&cantidad=1"><span class="add-to-cart-button">Añadir al carrito <i class="fas fa-cart-arrow-down"></i></span></a>
                 </div>
             </div>
