@@ -30,7 +30,7 @@ CREATE TABLE `autores` (
   `apellidoAutor` varchar(45) NOT NULL,
   `genero` char(3) NOT NULL,
   PRIMARY KEY (`idAutor`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `autores` (
 
 LOCK TABLES `autores` WRITE;
 /*!40000 ALTER TABLE `autores` DISABLE KEYS */;
-INSERT INTO `autores` VALUES (1,'Stephen ','King','MAS');
+INSERT INTO `autores` VALUES (1,'Stephen ','King','MAS'),(2,'Jk','Rowling','MAS'),(3,'Paulo','Coelho','MAS'),(4,'Dan',' Brown','MAS'),(5,'Margaret',' Mitchell','MAS'),(6,'Jane','Austen','MAS');
 /*!40000 ALTER TABLE `autores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -58,7 +58,7 @@ CREATE TABLE `carrito` (
   PRIMARY KEY (`idcarrito`),
   KEY `libros_carrito_idx` (`idlibro`),
   CONSTRAINT `libros_carrito` FOREIGN KEY (`idlibro`) REFERENCES `libros` (`idlibros`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -67,7 +67,7 @@ CREATE TABLE `carrito` (
 
 LOCK TABLES `carrito` WRITE;
 /*!40000 ALTER TABLE `carrito` DISABLE KEYS */;
-INSERT INTO `carrito` VALUES (7,'35CC157C-030D-41B0-8221-B4A861EBD873',1,8),(28,'63EF21BB-4A32-420C-B04B-A2489F11E060',1,6),(29,'90EE71F0-08D4-4797-B6FF-4A943D2D36C5',1,6),(31,'90EE71F0-08D4-4797-B6FF-4A943D2D36C5',1,6),(33,'68EF0410-0AE8-40C0-A640-8C27D72BB694',1,6),(34,'35CC157C-030D-41B0-8221-B4A861EBD873',1,6);
+INSERT INTO `carrito` VALUES (7,'35CC157C-030D-41B0-8221-B4A861EBD873',1,8),(44,'68EF0410-0AE8-40C0-A640-8C27D72BB694',1,6);
 /*!40000 ALTER TABLE `carrito` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,7 +82,7 @@ CREATE TABLE `categorias` (
   `idCategorias` int NOT NULL AUTO_INCREMENT,
   `categoriaDes` varchar(45) NOT NULL,
   PRIMARY KEY (`idCategorias`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,7 +91,7 @@ CREATE TABLE `categorias` (
 
 LOCK TABLES `categorias` WRITE;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
-INSERT INTO `categorias` VALUES (1,'Terror'),(2,'Ciencia Ficcion'),(3,'Romance');
+INSERT INTO `categorias` VALUES (1,'Terror'),(2,'Ciencia Ficcion'),(3,'Romance'),(4,'Literatura y lingüísticos');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +117,7 @@ CREATE TABLE `funciones` (
 
 LOCK TABLES `funciones` WRITE;
 /*!40000 ALTER TABLE `funciones` DISABLE KEYS */;
-INSERT INTO `funciones` VALUES ('Controllers/Admin/Admin','Controllers\\Admin\\Admin','ACT','ACT'),('Controllers\\Admin\\Admin','Controllers\\Admin\\Admin','ACT','CTR'),('Controllers\\Mnt\\Autores','Controllers\\Mnt\\Autores','ACT','CTR'),('Controllers\\Mnt\\Autores\\Delete','Controllers\\Mnt\\Autores\\Delete','ACT','CTR'),('Controllers\\Mnt\\Autores\\Edit','Controllers\\Mnt\\Autores\\Edit','ACT','CTR'),('Controllers\\Mnt\\Autores\\New','Controllers\\Mnt\\Autores\\New','ACT','CTR'),('Controllers\\Mnt\\Categorias','Controllers\\Mnt\\Categorias','ACT','CTR'),('Controllers\\Mnt\\Categorias\\Delete','Controllers\\Mnt\\Categorias\\Delete','ACT','CTR'),('Controllers\\Mnt\\Categorias\\Edit','Controllers\\Mnt\\Categorias\\Edit','ACT','CTR'),('Controllers\\Mnt\\Categorias\\New','Controllers\\Mnt\\Categorias\\New','ACT','CTR'),('Controllers\\Mnt\\Funcion_rol','Controllers\\Mnt\\Funcion_rol','ACT','CTR'),('Controllers\\Mnt\\Funciones','Controllers\\Mnt\\Funciones','ACT','CTR'),('Controllers\\Mnt\\LibroAutores','Controllers\\Mnt\\LibroAutores','ACT','CTR'),('Controllers\\Mnt\\Libros','Controllers\\Mnt\\Libros','ACT','CTR'),('Controllers\\Mnt\\Libros\\Delete','Controllers\\Mnt\\Libros\\Delete','ACT','CTR'),('Controllers\\Mnt\\Libros\\Edit','Controllers\\Mnt\\Libros\\Edit','ACT','CTR'),('Controllers\\Mnt\\Libros\\New','Controllers\\Mnt\\Libros\\New','ACT','CTR'),('Controllers\\Mnt\\Perfil','Controllers\\Mnt\\Perfil','ACT','CTR'),('Controllers\\Mnt\\Rol','Controllers\\Mnt\\Rol','ACT','CTR'),('Controllers\\Mnt\\Roles','Controllers\\Mnt\\Roles','ACT','CTR'),('Controllers\\Mnt\\Usuario','Controllers\\Mnt\\Usuario','ACT','CTR'),('Controllers\\Mnt\\Usuario\\Del','Controllers\\Mnt\\Usuario\\Del','ACT','CTR'),('Controllers\\Mnt\\Usuario\\Dsp','Controllers\\Mnt\\Usuario\\Dsp','ACT','CTR'),('Controllers\\Mnt\\Usuario\\New','Controllers\\Mnt\\Usuario\\New','ACT','CTR'),('Controllers\\Mnt\\Usuario\\Upd','Controllers\\Mnt\\Usuario\\Upd','ACT','CTR'),('Controllers\\Mnt\\Usuarios','Controllers\\Mnt\\Usuarios','ACT','CTR'),('Controllers\\Mnt\\Usuarios\\Delete','Controllers\\Mnt\\Usuarios\\Delete','ACT','CTR'),('Controllers\\Mnt\\Usuarios\\Edit','Controllers\\Mnt\\Usuarios\\Edit','ACT','CTR'),('Controllers\\Mnt\\Usuarios\\New','Controllers\\Mnt\\Usuarios\\New','ACT','CTR'),('MntUsuarios','MntUsuarios','ACT','CTR');
+INSERT INTO `funciones` VALUES ('Controllers/Admin/Admin','Controllers\\Admin\\Admin','ACT','ACT'),('Controllers\\Admin\\Admin','Controllers\\Admin\\Admin','ACT','CTR'),('Controllers\\Mnt\\Autor','Controllers\\Mnt\\Autor','ACT','CTR'),('Controllers\\Mnt\\Autores','Controllers\\Mnt\\Autores','ACT','CTR'),('Controllers\\Mnt\\Autores\\Delete','Controllers\\Mnt\\Autores\\Delete','ACT','CTR'),('Controllers\\Mnt\\Autores\\Edit','Controllers\\Mnt\\Autores\\Edit','ACT','CTR'),('Controllers\\Mnt\\Autores\\New','Controllers\\Mnt\\Autores\\New','ACT','CTR'),('Controllers\\Mnt\\Categorias','Controllers\\Mnt\\Categorias','ACT','CTR'),('Controllers\\Mnt\\Categorias\\Delete','Controllers\\Mnt\\Categorias\\Delete','ACT','CTR'),('Controllers\\Mnt\\Categorias\\Edit','Controllers\\Mnt\\Categorias\\Edit','ACT','CTR'),('Controllers\\Mnt\\Categorias\\New','Controllers\\Mnt\\Categorias\\New','ACT','CTR'),('Controllers\\Mnt\\Funcion_rol','Controllers\\Mnt\\Funcion_rol','ACT','CTR'),('Controllers\\Mnt\\Funciones','Controllers\\Mnt\\Funciones','ACT','CTR'),('Controllers\\Mnt\\Libro','Controllers\\Mnt\\Libro','ACT','CTR'),('Controllers\\Mnt\\Libro\\Delete','Controllers\\Mnt\\Libro\\Delete','ACT','CTR'),('Controllers\\Mnt\\Libro\\Edit','Controllers\\Mnt\\Libro\\Edit','ACT','CTR'),('Controllers\\Mnt\\Libro\\New','Controllers\\Mnt\\Libros\\New','ACT','CTR'),('Controllers\\Mnt\\LibroAutores','Controllers\\Mnt\\LibroAutores','ACT','CTR'),('Controllers\\Mnt\\Libros','Controllers\\Mnt\\Libros','ACT','CTR'),('Controllers\\Mnt\\Libros\\Delete','Controllers\\Mnt\\Libros\\Delete','ACT','CTR'),('Controllers\\Mnt\\Libros\\Edit','Controllers\\Mnt\\Libros\\Edit','ACT','CTR'),('Controllers\\Mnt\\Libros\\New','Controllers\\Mnt\\Libros\\New','ACT','CTR'),('Controllers\\Mnt\\Perfil','Controllers\\Mnt\\Perfil','ACT','CTR'),('Controllers\\Mnt\\Rol','Controllers\\Mnt\\Rol','ACT','CTR'),('Controllers\\Mnt\\Roles','Controllers\\Mnt\\Roles','ACT','CTR'),('Controllers\\Mnt\\Usuario','Controllers\\Mnt\\Usuario','ACT','CTR'),('Controllers\\Mnt\\Usuario\\Del','Controllers\\Mnt\\Usuario\\Del','ACT','CTR'),('Controllers\\Mnt\\Usuario\\Dsp','Controllers\\Mnt\\Usuario\\Dsp','ACT','CTR'),('Controllers\\Mnt\\Usuario\\New','Controllers\\Mnt\\Usuario\\New','ACT','CTR'),('Controllers\\Mnt\\Usuario\\Upd','Controllers\\Mnt\\Usuario\\Upd','ACT','CTR'),('Controllers\\Mnt\\Usuarios','Controllers\\Mnt\\Usuarios','ACT','CTR'),('Controllers\\Mnt\\Usuarios\\Delete','Controllers\\Mnt\\Usuarios\\Delete','ACT','CTR'),('Controllers\\Mnt\\Usuarios\\Edit','Controllers\\Mnt\\Usuarios\\Edit','ACT','CTR'),('Controllers\\Mnt\\Usuarios\\New','Controllers\\Mnt\\Usuarios\\New','ACT','CTR'),('MntUsuarios','MntUsuarios','ACT','CTR');
 /*!40000 ALTER TABLE `funciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +146,7 @@ CREATE TABLE `funciones_roles` (
 
 LOCK TABLES `funciones_roles` WRITE;
 /*!40000 ALTER TABLE `funciones_roles` DISABLE KEYS */;
-INSERT INTO `funciones_roles` VALUES ('ADM','Controllers\\Admin\\Admin','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Autores','ACT','2023-07-28 16:42:38'),('ADM','Controllers\\Mnt\\Autores\\Delete','ACT','2023-08-03 00:00:00'),('ADM','Controllers\\Mnt\\Autores\\Edit','ACT','2023-08-03 00:00:00'),('ADM','Controllers\\Mnt\\Autores\\New','ACT','2023-08-03 00:00:00'),('ADM','Controllers\\Mnt\\Categorias','ACT','2023-02-08 00:00:00'),('ADM','Controllers\\Mnt\\Categorias\\Delete','ACT','2023-02-08 00:00:00'),('ADM','Controllers\\Mnt\\Categorias\\Edit','ACT','2023-08-02 00:00:00'),('ADM','Controllers\\Mnt\\Categorias\\New','ACT','2023-08-02 00:00:00'),('ADM','Controllers\\Mnt\\Funcion_rol','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Funciones','ACT','2023-07-02 19:26:52'),('ADM','Controllers\\Mnt\\LibroAutores','ACT','2023-07-02 00:00:00'),('ADM','Controllers\\Mnt\\Libros','ACT','2023-07-28 16:42:42'),('ADM','Controllers\\Mnt\\Libros\\Delete','ACT','2023-07-02 00:00:00'),('ADM','Controllers\\Mnt\\Libros\\Edit','ACT','2023-07-02 00:00:00'),('ADM','Controllers\\Mnt\\Libros\\New','ACT','2023-08-02 00:00:00'),('ADM','Controllers\\Mnt\\Perfil','ACT','2023-07-02 00:00:00'),('ADM','Controllers\\Mnt\\Rol','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Roles','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuario','ACT','2023-08-02 00:00:00'),('ADM','Controllers\\Mnt\\Usuario\\Del','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuario\\Dsp','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuario\\New','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuario\\Upd','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuarios','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuarios\\Delete','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuarios\\Edit','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuarios\\New','ACT','2030-08-01 00:00:00'),('ADM','MntUsuarios','ACT','2023-07-02 19:27:01'),('EMP','Controllers\\Admin\\Admin','ACT','2023-07-02 18:36:53'),('ORG','Controllers/Admin/Admin','ACT','2023-07-02 19:17:45'),('ORG','Controllers\\Admin\\Admin','ACT','2023-07-02 19:17:50'),('ORG','Controllers\\Mnt\\Usuario','ACT','2023-07-02 19:23:09'),('ORG','Controllers\\Mnt\\Usuarios','ACT','2023-07-02 19:22:58');
+INSERT INTO `funciones_roles` VALUES ('ADM','Controllers\\Admin\\Admin','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Autores','ACT','2023-07-28 16:42:38'),('ADM','Controllers\\Mnt\\Autores\\Delete','ACT','2023-08-03 00:00:00'),('ADM','Controllers\\Mnt\\Autores\\Edit','ACT','2023-08-03 00:00:00'),('ADM','Controllers\\Mnt\\Autores\\New','ACT','2023-08-03 00:00:00'),('ADM','Controllers\\Mnt\\Categorias','ACT','2023-02-08 00:00:00'),('ADM','Controllers\\Mnt\\Categorias\\Delete','ACT','2023-02-08 00:00:00'),('ADM','Controllers\\Mnt\\Categorias\\Edit','ACT','2023-08-02 00:00:00'),('ADM','Controllers\\Mnt\\Categorias\\New','ACT','2023-08-02 00:00:00'),('ADM','Controllers\\Mnt\\Funcion_rol','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Funciones','ACT','2023-07-02 19:26:52'),('ADM','Controllers\\Mnt\\Libro\\Delete','ACT','2023-02-08 00:00:00'),('ADM','Controllers\\Mnt\\Libro\\Edit','ACT','2023-02-08 00:00:00'),('ADM','Controllers\\Mnt\\Libro\\New','ACT','2023-02-08 00:00:00'),('ADM','Controllers\\Mnt\\LibroAutores','ACT','2023-07-02 00:00:00'),('ADM','Controllers\\Mnt\\Libros','ACT','2023-07-28 16:42:42'),('ADM','Controllers\\Mnt\\Libros\\Delete','ACT','2023-07-02 00:00:00'),('ADM','Controllers\\Mnt\\Libros\\Edit','ACT','2023-07-02 00:00:00'),('ADM','Controllers\\Mnt\\Libros\\New','ACT','2023-08-02 00:00:00'),('ADM','Controllers\\Mnt\\Perfil','ACT','2023-07-02 00:00:00'),('ADM','Controllers\\Mnt\\Rol','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Roles','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuario','ACT','2023-08-02 00:00:00'),('ADM','Controllers\\Mnt\\Usuario\\Del','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuario\\Dsp','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuario\\New','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuario\\Upd','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuarios','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuarios\\Delete','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuarios\\Edit','ACT','2030-08-01 00:00:00'),('ADM','Controllers\\Mnt\\Usuarios\\New','ACT','2030-08-01 00:00:00'),('ADM','MntUsuarios','ACT','2023-07-02 19:27:01'),('EMP','Controllers\\Admin\\Admin','ACT','2023-07-02 18:36:53'),('ORG','Controllers/Admin/Admin','ACT','2023-07-02 19:17:45'),('ORG','Controllers\\Admin\\Admin','ACT','2023-07-02 19:17:50'),('ORG','Controllers\\Mnt\\Usuario','ACT','2023-07-02 19:23:09'),('ORG','Controllers\\Mnt\\Usuarios','ACT','2023-07-02 19:22:58');
 /*!40000 ALTER TABLE `funciones_roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,7 +167,7 @@ CREATE TABLE `libro_detalle` (
   `estaenoferta` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`idlibrodetalle`),
   KEY `detallelib_idx` (`idlibro`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,7 +176,7 @@ CREATE TABLE `libro_detalle` (
 
 LOCK TABLES `libro_detalle` WRITE;
 /*!40000 ALTER TABLE `libro_detalle` DISABLE KEYS */;
-INSERT INTO `libro_detalle` VALUES (1,'35CC157C-030D-41B0-8221-B4A861EBD873',50,15,500,'2021-12-09 20:14:53',1),(2,'68EF0410-0AE8-40C0-A640-8C27D72BB694',50,15,750,'2021-12-09 20:14:53',1),(3,'90EE71F0-08D4-4797-B6FF-4A943D2D36C5',122,12,12,'2021-12-09 20:14:53',1),(4,'63EF21BB-4A32-420C-B04B-A2489F11E060',5,10,15,'2021-12-08 21:43:44',1);
+INSERT INTO `libro_detalle` VALUES (1,'35CC157C-030D-41B0-8221-B4A861EBD873',50,15,500,'2022-08-09 20:14:53',1),(2,'68EF0410-0AE8-40C0-A640-8C27D72BB694',50,15,750,'2022-08-09 20:14:53',1),(3,'90EE71F0-08D4-4797-B6FF-4A943D2D36C5',122,12,12,'2022-08-09 20:14:53',1),(4,'63EF21BB-4A32-420C-B04B-A2489F11E060',5,10,15,'2022-08-08 21:43:44',1),(5,'91EE71F0-08D4-4797-B6FF-4A943D2D36D5',25,10,250,'2022-08-08 00:00:00',1);
 /*!40000 ALTER TABLE `libro_detalle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -204,7 +204,7 @@ CREATE TABLE `libros` (
 
 LOCK TABLES `libros` WRITE;
 /*!40000 ALTER TABLE `libros` DISABLE KEYS */;
-INSERT INTO `libros` VALUES ('35CC157C-030D-41B0-8221-B4A861EBD873','Ojos de Fuego','Ojos de fuego es la historia de Andy y Charlene \"Charlie\" McGee, una pareja de padre e hija que huyen de una agencia gubernamental conocida como The Shop, ubicada en el suburbio ficticio de Longmont, Virginia. Durante sus años universitarios, Andy participó en un experimento de The Shop con el \"Lote Seis\", una droga con efectos alucinógenos similares al LSD. La droga le dio a su futura esposa, Victoria Tomlinson, habilidades menores de telepatía, y a él la habilidad de dominar a las personas con la hipnosis, a la que él se refiere como El Empuje. Los poderes de Victoria y de él son limitados psicológicamente; en su caso, el uso excesivo le da migrañas y hemorragias cerebrales de un minuto, pero su hija Charlie desarrolló la piroquinesis.','public/imgs/coverarts/libro.png','1'),('63E2DDA7-60B7-4A7E-A9A1-E835A3C7BFF6','Blaze','Con la ayuda de un muerto, Blaze ha logrado perpetrar el crimen del siglo. Clay Blaisdell, llamado Blaze por todos, mide dos metros y pesa ciento treinta y seis kilos. Es un verdadero gigante. Sin embargo, hasta conocer a George Rackley nunca había hecho nada grande. George le enseñó cien maneras de estafar a la gente e ideó para él un plan ambicioso: secuestrar a un niño rico. La familia Gerard es multimillonaria y el nuevo retoño del clan valdrá muchos de estos millones. Solo hay un problema: cuando llega el momento de ponerlo todo en marcha, George, el cerebro de la operación (y de todo lo que hacen), muere. O quizá no. Por eso Blaze se encuentra huyendo desesperado de una tormenta y de la policía. Ha conseguido raptar al bebé, pero el secuestro se ha convertido en una carrera contrarreloj a través de los bosques infernales de Maine..','public/imgs/coverarts/libro.png','2'),('63EF21BB-4A32-420C-B04B-A2489F11E060','charlie y la fabrica de chocolates','FDGDFSGSDFGSDTGHSDTH','public/imgs/coverarts/libro.png','3'),('68EF0410-0AE8-40C0-A640-8C27D72BB694','Ojos de Fuego2','hola mundo','public/imgs/coverarts/libro.png','4'),('90EE71F0-08D4-4797-B6FF-4A943D2D36C5','las aventuras de tintin','hola mundo','public/imgs/coverarts/libro.png','5');
+INSERT INTO `libros` VALUES ('35CC157C-030D-41B0-8221-B4A861EBD873','Orgullo y Prejuicio','Lorem Ipsum is simply dummy text of the printing and typesetting industry','public/imgs/coverarts/Orgullo y prejuicio.jpeg','1'),('63E2DDA7-60B7-4A7E-A9A1-E835A3C7BFF6','Blaze','Lorem Ipsum is simply dummy text of the printing and typesetting industry','public/imgs/coverarts/libro.png','2'),('63EF21BB-4A32-420C-B04B-A2489F11E060','El Alquimista','Lorem Ipsum is simply dummy text of the printing and typesetting industry','public/imgs/coverarts/l2.jpeg','3'),('68EF0410-0AE8-40C0-A640-8C27D72BB694','El Código da Vinci','Lorem Ipsum is simply dummy text of the printing and typesetting industry','public/imgs/coverarts/El codigo da vinci.jpeg','4'),('90EE71F0-08D4-4797-B6FF-4A943D2D36B5','Persuasión','Lorem Ipsum is simply dummy text of the printing and typesetting industry','public/imgs/coverarts/Persuasion.jpeg','6'),('90EE71F0-08D4-4797-B6FF-4A943D2D36C5','Lo que el viento se llevó','Lorem Ipsum is simply dummy text of the printing and typesetting industry','public/imgs/coverarts/Lo que el viento se llevo.jpeg','5'),('91EE71F0-08D4-4797-B6FF-4A943D2D36D5','Emma','Lorem Ipsum is simply dummy text of the printing and typesetting industry','public/imgs/coverarts/libro.png','7');
 /*!40000 ALTER TABLE `libros` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -232,7 +232,7 @@ CREATE TABLE `libros_autores` (
 
 LOCK TABLES `libros_autores` WRITE;
 /*!40000 ALTER TABLE `libros_autores` DISABLE KEYS */;
-INSERT INTO `libros_autores` VALUES ('35CC157C-030D-41B0-8221-B4A861EBD873',1),('63E2DDA7-60B7-4A7E-A9A1-E835A3C7BFF6',1),('63EF21BB-4A32-420C-B04B-A2489F11E060',1),('68EF0410-0AE8-40C0-A640-8C27D72BB694',1),('90EE71F0-08D4-4797-B6FF-4A943D2D36C5',1);
+INSERT INTO `libros_autores` VALUES ('63E2DDA7-60B7-4A7E-A9A1-E835A3C7BFF6',1),('63EF21BB-4A32-420C-B04B-A2489F11E060',3),('68EF0410-0AE8-40C0-A640-8C27D72BB694',4),('35CC157C-030D-41B0-8221-B4A861EBD873',6),('90EE71F0-08D4-4797-B6FF-4A943D2D36C5',6),('91EE71F0-08D4-4797-B6FF-4A943D2D36D5',6);
 /*!40000 ALTER TABLE `libros_autores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -314,7 +314,7 @@ CREATE TABLE `roles_usuarios` (
 
 LOCK TABLES `roles_usuarios` WRITE;
 /*!40000 ALTER TABLE `roles_usuarios` DISABLE KEYS */;
-INSERT INTO `roles_usuarios` VALUES (6,'ADM','ACT','2022-07-02 17:35:00','2022-07-02 17:35:00'),(8,'ORG','ACT','2022-08-03 21:38:02','2022-08-03 21:38:02');
+INSERT INTO `roles_usuarios` VALUES (6,'ADM','ACT','2022-07-02 17:35:00','2023-10-02 17:35:00'),(8,'ORG','ACT','2022-08-03 21:38:02','2023-08-03 21:38:02');
 /*!40000 ALTER TABLE `roles_usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -340,7 +340,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`usercod`),
   UNIQUE KEY `useremail_UNIQUE` (`useremail`),
   KEY `usertipo` (`usertipo`,`useremail`,`usercod`,`userest`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -349,7 +349,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (6,'dorismeza56@gmail.com','Doris','$2y$10$8h4or5Nsgbd40Ha8bhgZ3.pwMzzRQINVoIlkiXlRXamrQlryXRqoK','2022-07-23 15:09:43','ACT','2022-10-21 00:00:00','ACT','18713ca7459d0e0049171d2cea56cbb1c89d0253cee9f438f151028cc6d58697','2022-07-23 15:09:43','ACT'),(8,'dfulano058@gmail.com','Fulano','$2y$10$rqbbsND.EucEuCNHAKplGePTUgEENCxDu9xbST97wAxyOd6a/GuZe','2022-07-24 22:33:41','ACT','2022-10-22 00:00:00','ACT','961ae0c641c6f22d8ac4bc24896aa5e1d9eedd71d9129676061a05a121778747','2022-07-24 22:33:41','ACT');
+INSERT INTO `usuario` VALUES (6,'dorismeza56@gmail.com','Doris','$2y$10$.vCBzURaYL5Ja0Y2dCxu/.vf6QuOQGHECoqWt9zL.t/zqnw3nBLmi','2022-07-23 15:09:43','ACT','2022-10-21 00:00:00','ACT','18713ca7459d0e0049171d2cea56cbb1c89d0253cee9f438f151028cc6d58697','2022-07-23 15:09:43','ACT'),(8,'dfulano058@gmail.com','Fulano','$2y$10$rqbbsND.EucEuCNHAKplGePTUgEENCxDu9xbST97wAxyOd6a/GuZe','2022-07-24 22:33:41','ACT','2022-10-22 00:00:00','ACT','961ae0c641c6f22d8ac4bc24896aa5e1d9eedd71d9129676061a05a121778747','2022-07-24 22:33:41','ACT');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -362,4 +362,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-08-04  1:55:49
+-- Dump completed on 2022-08-04 19:23:24
