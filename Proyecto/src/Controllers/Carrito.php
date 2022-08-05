@@ -135,9 +135,6 @@ class Carrito extends PublicController
             }
         }
         
-        
-
-       
         Renderer::render("principal/carrito", $viewData);
     }
     }

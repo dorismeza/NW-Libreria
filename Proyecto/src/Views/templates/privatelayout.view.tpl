@@ -8,7 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/{{BASE_DIR}}/public/css/appstyle.css" />
-  <script src="https://kit.fontawesome.com/{{FONT_AWESOME_KIT}}.js" crossorigin="anonymous"></script>
+  
+  
   {{foreach SiteLinks}}
   <link rel="stylesheet" href="/{{~BASE_DIR}}/{{this}}" />
   {{endfor SiteLinks}}
@@ -16,9 +17,23 @@
   <script src="/{{~BASE_DIR}}/{{this}}"></script>
   {{endfor BeginScripts}}
 </head>
+<style>
 
+.encabezado{
+  background-color: #8ce272 !important;
+ position: relative;
+  display: flex;
+  
+}
+
+
+
+
+</style>
 <body>
-  <header>
+  
+
+  <header class="encabezado">
     <input type="checkbox" class="menu_toggle" id="menu_toggle" />
     <label for="menu_toggle" class="menu_toggle_icon">
       <div class="hmb dgn pt-1"></div>
@@ -30,7 +45,7 @@
     <nav id="menu">
       <ul>
       
-        <li><a href="index.php?page=admin_admin"><i class="fas fa-home"></i>&nbsp;Inicio</a></li>
+        <li><a href="index.php?page=admin_admin"></i>&nbsp;Inicio</a></li>
         {{foreach NAVIGATION}}
             <li><a href="{{nav_url1}}">{{nav_label1}}</a></li>    
                  <li><a href="{{nav_url2}}">{{nav_label2}}</a></li> 
@@ -43,18 +58,22 @@
 
       
     </nav>
+   <div class="bottons" style="left:100px;">
     {{with login}}
-    <span class="username">{{userName}} <a href="index.php?page=sec_logout"><i class="fas fa-sign-out-alt"></i></a></span>
-   <a href="index.php?page=carrito&mode=DSP" class="button " />Carrito
-    
+    <span class="username">{{userName}} </span>
+   <a href="index.php?page=carrito&mode=DSP" class="button " >Carrito</a>
     {{endwith login}}
+
+    </div>
+
+
+
+
   </header>
   <main>
     {{{page_content}}}
   </main>
-  <footer>
-    <div>Todo los Derechos Reservados 2022 &copy;</div>
-  </footer>
+  
   {{foreach EndScripts}}
   <script src="/{{~BASE_DIR}}/{{this}}"></script>
   {{endfor EndScripts}}

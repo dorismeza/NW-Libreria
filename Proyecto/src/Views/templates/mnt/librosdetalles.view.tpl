@@ -3,7 +3,16 @@
         text-align: center;
     }
     button {
-        margin: 0.5em;
+        background-color: #00f181; /* Green */
+  border: none;
+  text-transform: uppercase;
+  position:static;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
     }
 </style>
 <h1>Gestión de Libros</h1>
@@ -40,7 +49,7 @@
              <input type="hidden" name="page" value="mnt_librosdetalles"/>
               <input type="hidden" name="mode" value="UPD" />
               <input type="hidden" name="idlibros" value={{idlibros}} />
-              <button type="submit">Editar</button>
+              <button type="submit" class ="button">Editar</button>
           </form>
           {{endif ~edit_enabled}}
           {{if ~delete_enabled}}
@@ -48,7 +57,7 @@
              <input type="hidden" name="page" value="mnt_librosdetalles"/>
               <input type="hidden" name="mode" value="DEL" />
               <input type="hidden" name="idlibros" value={{idlibros}} />
-              <button type="submit">Eliminar</button>
+              <button type="submit" class ="button">Eliminar</button>
           </form>
           {{endif ~delete_enabled}}
         </td>

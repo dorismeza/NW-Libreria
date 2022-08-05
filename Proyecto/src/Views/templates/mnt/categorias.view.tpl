@@ -1,24 +1,23 @@
-<style>
-    td {
-        text-align: center;
-    }
-    button {
-        margin: 0.5em;
-    }
+
 </style>
-<h1>Gestión de Categorisa de Libros</h1>
+<h1>Gestión de Categorias de Libros</h1>
 <section class="WWFilter">
 
 </section>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  
+
 <section class="WWList">
-  <table>
-    <thead>
+  
+    
+  <table class="table table-lg">
+    <thead class="thead-dark thead-light">
       <tr>
-        <th>Código</th>
-        <th>Categoría</th>
+        <th scope="col">Código</th>
+        <th scope="col">Categoría</th>
         <th>
           {{if new_enabled}}
-          <button id="btnAdd">Nuevo</button>
+          <button id="btnAdd" class="btn btn-primary btn-sm btn-block">Nuevo</button>
           {{endif new_enabled}}
         </th>
       </tr>
@@ -26,7 +25,7 @@
     <tbody>
       {{foreach items}}
       <tr>
-        <td>{{idCategorias}}</td>
+        <td scope="row">{{idCategorias}}</td>
         <td><a href="index.php?page=mnt_categoria&mode=DSP&idcategorias={{idCategorias}}">{{categoriaDes}}</a></td>
         <td>
           {{if ~edit_enabled}}
@@ -34,15 +33,16 @@
              <input type="hidden" name="page" value="mnt_categoria"/>
               <input type="hidden" name="mode" value="UPD" />
               <input type="hidden" name="idcategorias" value={{idCategorias}} />
-              <button type="submit">Editar</button>
+              <button type="submit" class="btn btn-dark btn-sm btn-block">Editar</button>
           </form>
+          <p>
           {{endif ~edit_enabled}}
           {{if ~delete_enabled}}
           <form action="index.php" method="get">
              <input type="hidden" name="page" value="mnt_categoria"/>
               <input type="hidden" name="mode" value="DEL" />
               <input type="hidden" name="idcategorias" value={{idCategorias}} />
-              <button type="submit">Eliminar</button>
+              <button type="submit" class="btn btn-danger btn-sm btn-block">Eliminar</button>
           </form>
           {{endif ~delete_enabled}}
         </td>
@@ -50,7 +50,9 @@
       {{endfor items}}
     </tbody>
   </table>
+  
 </section>
+
 <script>
    document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("btnAdd").addEventListener("click", function (e) {

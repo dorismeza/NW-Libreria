@@ -7,8 +7,8 @@
   --primary-font-color: #222;
   --secondary-font-color: white;
   --terciary-font-color: #e74c3c;
-  --primary-button-color: #e74c3c;
-  --primary-button-hover-color: hsl(6, 78%, 45%);
+  --primary-button-color: #3c72e7;
+  --primary-button-hover-color: hsl(225, 80%, 44%);
   --secondary-button-color: white;
   --font-primary-color: #333;
   --font-secondary-color: #6e6d81;
@@ -278,6 +278,11 @@ main {
     transition: .4s all ease-in-out;
 }
 
+ .formulario{
+    
+    background-color: #ffffff !important;
+  }
+
 footer {
   grid-row: content-end / main-end;
 }
@@ -332,12 +337,13 @@ i.fa {
     background-color: var(--primary-button-hover-color);
 }
 }
-</style>
-<title>MegaBook: Home</title>
 
+</style>
+
+<body style="background-color:white ;">
 <section class="saludo">
   <h1 class="books-title">Hola, {{userName}}.</h1>
-  <span class="book-subtitle">¡Llevemonos un libro, hoy!</span>
+  <span class="book-subtitle">¡Bienvenido a la Libreria!</span>
 </section>
 
 <section class="books-container">
@@ -354,10 +360,10 @@ i.fa {
                 </div>
                 
                 <div class="book-button-container">
-                    <a href="#"><span class="view-book-button">Ver libro <i class="fas fa-cart-arrow-down"></i></span></a>
+                   
 
                     
-                    <a href="index.php?page=carrito&mode=INS&idlibros={{idlibros}}&cantidad=1"><span class="add-to-cart-button">Añadir al carrito <i class="fas fa-cart-arrow-down"></i></span></a>
+                    <a href="index.php?page=carrito&mode=INS&idlibros={{idlibros}}&cantidad=1"><span class="add-to-cart-button">Añadir al carrito </span></a>
                 </div>
             </div>
         {{endfor libros}}
@@ -365,14 +371,14 @@ i.fa {
     {{ifnot hasLibros}}
         <div class="empty-state-container">
             <img 
-            src="http://localhost/MegaBook/public/imgs/emptystate.png" 
+            src="http://localhost/Proyecto/public/imgs/emptystate.png" 
             alt="Vacio" 
             class="empty-state">
         </div>
     {{endifnot hasLibros}}
 </section>
 
-<aside class="sidebar-container">
+<aside class="sidebar-container formulario">
     <h4 class="sidebar-title">Categorías</h4>
     {{foreach categorias}}
         <a 
@@ -382,3 +388,4 @@ i.fa {
         </a>
     {{endfor categorias}}
 </aside>
+</body>

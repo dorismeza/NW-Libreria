@@ -28,7 +28,7 @@
         margin-right: 15px;
     }
 </style>
-
+  
 <section class="centro">
     <h1>{{mode_dsc}}</h1>
   <form action="index.php?page=mnt_usuario&mode={{mode}}&usercod={{usercod}}"
@@ -51,7 +51,7 @@
     </section>
     <section>
       <label for="userpswd">Usuario password</label>
-      <input type="password" {{readonly}} name="userpswd" value="{{userpswd}}" maxlength="450" placeholder="Contraseña"/>
+      <input type="password"  name="userpswd" value="{{userpswd}}" maxlength="450" placeholder="Contraseña"/>
     </section>
     <section>
       <label for="userfching">Usuario fecha</label>
@@ -133,9 +133,9 @@
 
     <section>
       {{if showaction}}
-      <button type="submit" name="btnGuardar" value="G">Guardar</button>
+      <button type="submit" name="btnGuardar" value="G" class="btn btn-dark btn-sm btn-block">Guardar</button>
       {{endif showaction}}
-      <button type="button" id="btnCancelar">Cancelar</button>
+      <button type="button" id="btnCancelar" class="btn btn-danger btn-sm btn-block">Cancelar</button>
     </section>
   </form>
 </section>

@@ -11,9 +11,9 @@ class LibrosDetalles extends PrivateController
     {
         $viewData = array();
         $viewData["items"] = \Dao\Mnt\LibroDetalle::obtenerTodoLibroDetalle();
-        $viewData["new_enabled"] = self::isFeatureAutorized("Controllers\Mnt\LibrosDetalles\New");
-        $viewData["edit_enabled"] = self::isFeatureAutorized("Controllers\Mnt\LibrosDetalles\Edit");
-        $viewData["delete_enabled"] = self::isFeatureAutorized("Controllers\Mnt\LibrosDetalles\Delete");
+        $viewData["new_enabled"] =true;
+        $viewData["edit_enabled"] =true;
+        $viewData["delete_enabled"] =true;
 
         Renderer::render("mnt/librosdetalles", $viewData);
     }
